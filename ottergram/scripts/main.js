@@ -5,6 +5,7 @@ var DETAIL_FRAME_SELECTOR = '[data-image-role="frame"]';
 var HIDDEN_DETAIL_CLASS = 'hidden-detail';
 var TINY_EFFECT_CLASS = 'is-tiny';
 var ESC_KEY = 27;
+var ZERO_KEY = 48;
 
 function setDetails(imageUrl, titleText) {
     'use strict';
@@ -70,20 +71,8 @@ function addKeyPressHandler() {
         if(event.keyCode === ESC_KEY) {
             hideDetails();
         }
-        if(event.keyCode === 49) {
-            setDetailsFromThumb(thumb[0]);
-        }
-        if(event.keyCode === 50) {
-            setDetailsFromThumb(thumb[1]);
-        }
-        if(event.keyCode === 51) {
-            setDetailsFromThumb(thumb[2]);
-        }
-        if(event.keyCode === 52) {
-            setDetailsFromThumb(thumb[3]);
-        }
-        if(event.keyCode === 53) {
-            setDetailsFromThumb(thumb[4]);
+        if(event.keyCode > ZERO_KEY && event.keyCode <= ZERO_KEY + thumb.length) {
+            setDetailsFromThumb(thumb[event.keyCode - ZERO_KEY - 1]);
         }
     });
 }

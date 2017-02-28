@@ -19,7 +19,7 @@
         "semi": [
             "error",
             "always"
-        ]
-    },
-    "no-console": ["error", { "allow": ["warn", "error", "log"] }]
+        ],
+        "no-console": 0
+    }
 }
